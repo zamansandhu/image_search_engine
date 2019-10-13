@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <ol>
+            {% for phrase, replacement in forb %}
+                {% if phrase in text %}
+                <li><p>{{ replacement }}</p></li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+        <ol>
+            {% for phrase, replacement in req %}
+                {% if phrase not in text %}
+                <li><p>{{ replacement }}</p></li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+        <ol>
+            {% for key,value in a.items() %}
+                {% for item in value %}
+                    {% if item in text %}
+                <li><p>{{ key }}</p></li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ol>
+
+        {% for r in result %}
+                <li><p>{{ loop.index }}-{{ r }}</p></li>
+        {% endfor %}
+        
+    </body>
+    <pre>
+        <h4>{{ text }}</h4>
+    </pre>
+</html>
